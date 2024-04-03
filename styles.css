@@ -38,7 +38,7 @@ body{
 
 .space p{
     text-align: center;
-    font-size: 40px;
+    font-size: 2.5vmax;
     margin: 0;
     font-weight: bold;
 }
@@ -107,17 +107,26 @@ body{
     background: rgb(255,220,205);
     background: linear-gradient(45deg, rgba(255,220,205,1) 50%, rgba(231,180,158,1) 100%);
     border: 0;
-    border-bottom: 9px #da9e93 solid;
+    border-bottom: calc((5vmax - 11px)/5) #da9e93 solid;
     border-radius: 20%;
 }
 
 .letter p{
     text-align: center;
-    font-size: 40px;
+    font-size: 2.5vmax;
     margin: 0;
     font-weight: bold;
 }
 
 .bottom i{
     cursor: pointer;
+}
+
+@keyframes pop-in{
+    from{
+        transform: scale(0%);
+    }
+    to {
+        transform: scale(100%);
+    }
 }

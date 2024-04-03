@@ -28,13 +28,18 @@ document.addEventListener("DOMContentLoaded", function() {
         let id = document.getElementById(squareId);
         let existingP = id.querySelector('p');
         if(!existingP) {
+            //add style elements
             id.classList.add("space-add");
+            //create p element
             let text = document.createElement('p');
             let letterText = document.createTextNode(letter);
             text.appendChild(letterText);
             id.appendChild(text);
+            //play sfx
+            //make new letter and reduce count
             generateLetter();
             count--;
+            //animate new letter
         }
     }
 });
@@ -49,6 +54,10 @@ function displayLetter(){
     if(count > 1){
         const display = document.getElementById("letter");
         display.innerText = letter;
+        let letterElement = document.querySelector('.letter');
+        letterElement.style.animation = 'none'; // Remove animation
+        void letterElement.offsetWidth; // Trigger reflow
+        letterElement.style.animation = 'pop-in 0.2s ease'; // Re-add animation
     }
 }
 
