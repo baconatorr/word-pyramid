@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Pyramid - MasonBacon</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="header">
+        <h1>Word Pyramid</h1>
+    </div>
+    <div class="pyramid">
+        <div class="row" id="row1">
+            <div class="space" id="r1s1"></div>
+        </div>
+        <div class="row" id="row2">
+            <div class="space" id="r2s1"></div>
+            <div class="space" id="r2s2"></div>
+        </div>
+        <div class="row" id="row3">
+            <div class="space" id="r3s1"></div>
+            <div class="space" id="r3s2"></div>
+            <div class="space" id="r3s3"></div>
+        </div>
+        <div class="row" id="row4">
+            <div class="space" id="r4s1"></div>
+            <div class="space" id="r4s2"></div>
+            <div class="space" id="r4s3"></div>
+            <div class="space" id="r4s4"></div>
+        </div>
+        <div class="row" id="row5">
+            <div class="space" id="r5s1"></div>
+            <div class="space" id="r5s2"></div>
+            <div class="space" id="r5s3"></div>
+            <div class="space" id="r5s4"></div>
+            <div class="space" id="r5s5"></div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="restart">
+            <i class='bx bx-refresh'></i>
+        </div>
+        <div class="letter" draggable="true">
+            <p>A</p>
+        </div>
+        <div class="skip">
+            <i class='bx bxs-skip-next-circle' ></i>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
