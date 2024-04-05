@@ -130,3 +130,33 @@ body{
         transform: scale(100%);
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .space {
+        width: 8vmax; 
+        height: 8vmax; 
+    }
+    .space-add {
+        height: calc(8vmax - 8.8px);
+        width: 8vmax;
+    }
+    .letter{
+        height: calc(8vmax - 11px);
+        width: calc(8vmax - 2px);
+
+    }
+
+    .letter p,
+    .space p{
+        font-size: 5vmax;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+    .space,
+    .space-add,
+    .letter {
+        width: 8vmax; /* Adjust width for medium screens */
+        height: 8vmax; /* Adjust height for medium screens */
+    }
+}
