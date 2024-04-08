@@ -206,19 +206,11 @@ function Get(word) {
 }
 
 function checkIfWord(json) {
-    try {
-        let obj = JSON.parse(json);
         if (obj[0].hasOwnProperty("word")) {
             animate("correct");
         } else {
             animate("wrong");
         }
-    } catch (error) {
-        // Handle error, maybe log it or notify the user
-        console.error("Error parsing JSON:", error);
-        // Handle the case when the API call fails
-        // For example, show an error message to the user
-    }
 }
 
 function animate(rw){
