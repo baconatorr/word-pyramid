@@ -209,18 +209,20 @@ function checkIfWord(json) {
     }
 
 function animate(rw){
-    if(rw == "correct") {
+    if(rw == "correct" || rw == "wrong") {
         for(let i = 0; i < currentCheck; i++){
             let id = document.getElementById("r" + currentCheck + "s" + i);
-            id.classList.add("correct");
+            if (id) {
+                id.classList.add(rw); // Adding either "correct" or "incorrect" class
+            } else {
+                console.error("Element with ID 'r" + currentCheck + "s" + i + "' not found.");
+            }
         }
-    } else if(rw == "wrong"){
-        for(let i = 0; i < currentCheck; i++){
-            let id = document.getElementById("r" + currentCheck + "s" + i);
-            id.classList.add("incorrect");
-        }
+    } else {
+        console.error("Invalid animation type:", rw);
     }
 }
+
 function refresh(){
     location.reload();
 }
