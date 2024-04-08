@@ -13,12 +13,17 @@ let letter = "";
 let skips = 3;
 let count = 15;
 let randomIndex;
+let night = false
 window.onload = () => {
     chosenLetters = [];
     generateList();
     generateLetter();
     skips = 3;  
     count = 15;
+    const nightModeEnabled = localStorage.getItem("nightMode") === "true";
+    if (nightModeEnabled) {
+        nightMode();
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -143,4 +148,27 @@ function skip(){
 
 function refresh(){
     location.reload();
+}
+
+function nightMode() {
+    if (!night) {
+        document.body.classList.add("night");
+        localStorage.setItem("nightMode", "true");
+        night = true;
+    } else {
+        document.body.classList.remove("night");
+        document.body.style.backgroundC = "#FFFFFF";
+        localStorage.removeItem("nightMode");
+        night = false;
+    }
+}
+
+function openModal(){
+    let modal = document.getElementById("modal");
+    modal.showModal();
+}
+
+function closeModal(){
+    let modal = document.getElementById("modal");
+    modal.close();
 }
