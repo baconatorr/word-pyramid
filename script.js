@@ -46,7 +46,7 @@ window.onload = () => {
         localStorage.setItem('wins', wins);
     }
     let storedMatches = localStorage.getItem('matches');
-    if (storedWins !== null) {
+    if (storedMatches !== null) {
         matches = parseInt(storedMatches);
     } else {
         localStorage.setItem('matches', matches);
