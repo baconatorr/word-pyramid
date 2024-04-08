@@ -154,11 +154,12 @@ function skip(){
 
 
 function rowCheck(Id){
-    //get row from id
-    let row = Id[1];
-    currentCheck = row;
+    // Extract row number from the ID
+    let row = Id.substring(1, 2); // Assuming IDs are in the format 'rXsY'
+
     let word = [];
-    for(let i = 0; i < row; i++){
+    // Iterate over all squares in the row
+    for(let i = 1; i <= row; i++){
         let id = document.getElementById("r" + row + "s" + i);
         if (id) {
             let check = id.querySelector('p');
@@ -170,8 +171,9 @@ function rowCheck(Id){
             }
         }
     }
-    let pushed = word.toString();
+    let pushed = word.join(""); // Use join() to concatenate array elements into a string
     console.log(pushed + " was pushed");
+    // Assuming `Get` is a valid function for fetching data
     Get(pushed).then(data => checkIfWord(data)).catch(error => console.error(error));
 }
 
