@@ -27,8 +27,17 @@
 </head>
 <body>
     <div class="header">
+        <i class='bx bxs-moon' onclick="nightMode()" id="night-toggle"></i>
         <h1>Word Pyramid</h1>
+        <i class='bx bx-question-mark' onclick="openModal()"></i>
     </div>
+    <dialog id="modal">
+        <h1>Word Pyramid</h1>
+        <h2>How to play?</h2>
+        <p>Your aim in Word Pyramid is to form words in each row of the pyramid using the provided random letter. Tap the square in the pyramid to place the letter.</p>
+        <img src="modal gif.gif"></img>
+        <button onclick="closeModal()" id="close">Close</button>
+    </dialog>
     <div class="pyramid">
         <div class="row" id="row1">
             <div class="space" id="r1s1"></div>
