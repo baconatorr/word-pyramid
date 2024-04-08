@@ -51,6 +51,8 @@ window.onload = () => {
     } else {
         localStorage.setItem('matches', matches);
     }
+    document.getElementById("winDisplay").innerText = "Wins = " + wins;
+    document.getElementById("matchesDisplay").innerText = "Matches = " + matches;
 }
 
 document.addEventListener("DOMContentLoaded", function() {
