@@ -18,7 +18,7 @@ let currentCheck;
 localStorage.setItem("nightMode", night);
 window.addEventListener('DOMContentLoaded', (event) => {
   // Function that needs to be executed before page load
-  const nightModeEnabled = localStorage.getItem("nightMode")
+  night = localStorage.getItem("nightMode")
    nightMode();
   
   // Allow page content to be displayed
