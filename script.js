@@ -15,6 +15,7 @@ let count = 15;
 let randomIndex;
 let night = false;
 let currentCheck;
+localStorage.setItem("nightMode", night);
 window.addEventListener('DOMContentLoaded', (event) => {
   // Function that needs to be executed before page load
   const nightModeEnabled = localStorage.getItem("nightMode")
