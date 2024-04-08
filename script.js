@@ -18,6 +18,7 @@ let currentCheck;
 
 let wordCount = 0;
 let winCount = 0;
+let letterCount = 0;
 
 // Check if the user has visited the page before
 if (!localStorage.getItem('visited')) {
@@ -74,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function() {
             //make new letter and reduce count
             generateLetter();
             count--;
+            letterCount++;
             rowCheck(squareId);
         }
     }
@@ -232,6 +234,10 @@ function winCheck(){
   if(wordCount == 5){
       wins++;
       localStorage.setItem('wins', wins);
+  }
+  if(letterCount == 16){
+    matches++;
+    localStorage.setItem('matches', matches);
   }
 }
 
