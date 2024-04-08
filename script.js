@@ -15,15 +15,7 @@ let count = 15;
 let randomIndex;
 let night = false;
 let currentCheck;
-window.addEventListener('DOMContentLoaded', (event) => {
-  // Function that needs to be executed before page load
-  nightModeEnabled = localStorage.getItem("nightMode");
-  console.log(nightModeEnabled);
-   nightMode();
-  
-  // Allow page content to be displayed
-  document.getElementById('content').style.display = 'block';
-});
+
 // Check if the user has visited the page before
 if (!localStorage.getItem('visited')) {
   // Run the function for first-time users
@@ -222,19 +214,6 @@ function animate(rw){
 }
 function refresh(){
     location.reload();
-}
-
-function nightMode() {
-    if (!night) {
-        document.body.classList.add("night");
-        localStorage.setItem("nightMode", "true");
-        night = true;
-    } else {
-        document.body.classList.remove("night");
-        document.body.style.backgroundColor = "#FFFFFF";
-        localStorage.removeItem("nightMode");
-        night = false;
-    }
 }
 
 function openModal(){
