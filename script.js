@@ -16,6 +16,8 @@ let randomIndex;
 let night = false;
 let currentCheck;
 
+let wordCount = 0;
+
 // Check if the user has visited the page before
 if (!localStorage.getItem('visited')) {
   // Run the function for first-time users
@@ -186,7 +188,9 @@ function Get(word) {
                 if (!response.ok) {
                     throw new Error('Request failed: ' + response.status);
                 }
+                wordCount++;
                 animate("correct");
+                winCheck();
             })
             .then(data => resolve(data))
             .catch(error => {
@@ -199,14 +203,6 @@ function Get(word) {
             });
     });
 }
-
-function checkIfWord(json) {
-    // Check if the response contains a "word" property
-    if (json && json[0] && json[0].hasOwnProperty("word")) {
-        // If "word" property is found, run the animate("correct") function
-        animate("correct");
-    }
-    }
 
 function animate(rw){
     if(rw == "correct" || rw == "wrong") {
@@ -223,6 +219,11 @@ function animate(rw){
     }
 }
 
+function winCheck(){
+  if(wordCount == 5){
+    
+  }
+}
 function refresh(){
     location.reload();
 }
@@ -236,3 +237,5 @@ function closeModal(){
     let modal = document.getElementById("modal");
     modal.close();
 }
+
+
