@@ -17,8 +17,9 @@ let night = false;
 let currentCheck;
 window.addEventListener('DOMContentLoaded', (event) => {
   // Function that needs to be executed before page load
-  const nightModeEnabled = localStorage.getItem("nightMode") === "true"
-   if (nightModeEnabled) {
+  const nightModeEnabled = localStorage.getItem("nightMode")
+   if (nightModeEnabled  === "true" ) {
+        night = true;
         nightMode();
     } else{
         night = false;
@@ -29,6 +30,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
   document.getElementById('loader').style.display = 'none';
   document.getElementById('content').style.display = 'block';
 });
+// Check if the user has visited the page before
+if (!localStorage.getItem('visited')) {
+  // Run the function for first-time users
+  openModal();
+
+  // Set a flag in local storage to indicate that the user has visited the page
+  localStorage.setItem('visited', 'true');
+}
 window.onload = () => {
     chosenLetters = [];
     generateList();
