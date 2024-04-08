@@ -194,11 +194,14 @@ function Get(word) {
 }
 
 function checkIfWord(json) {
-        if (obj[0].hasOwnProperty("word")) {
-            animate("correct");
-        } else {
-            animate("wrong");
-        }
+    // Check if the response contains a "word" property
+    if (json && json[0] && json[0].hasOwnProperty("word")) {
+        // If "word" property is found, run the animate("correct") function
+        animate("correct");
+    } else {
+        // If "word" property is not found, you can handle it here
+        console.log("No word property found in the response.");
+    }
 }
 
 function animate(rw){
