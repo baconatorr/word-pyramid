@@ -34,6 +34,8 @@ window.onload = () => {
     chosenLetters = [];
     generateList();
     generateLetter();
+    letterCount = 0;
+    wordCount = 0;
     skips = 3;  
     count = 15;
     let storedWins = localStorage.getItem('wins');
