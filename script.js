@@ -234,6 +234,7 @@ function winCheck(){
       localStorage.setItem('wins', wins);
   }
 }
+
 function refresh(){
     location.reload();
 }
