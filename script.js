@@ -28,7 +28,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
    }
   
   // Allow page content to be displayed
-  document.getElementById('loader').style.display = 'none';
   document.getElementById('content').style.display = 'block';
 });
 // Check if the user has visited the page before
