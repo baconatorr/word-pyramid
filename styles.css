@@ -28,6 +28,12 @@ body{
     cursor: pointer;
 }
 
+.right{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
 .pyramid{
     gap: 10px;
     width: 50vmax;
