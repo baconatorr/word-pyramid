@@ -23,6 +23,10 @@ body{
     width: 100vw;
 }
 
+.header div, .header h1{
+    width: 210px;
+}
+
 .header i{
     font-size: 2.5vmax;
     cursor: pointer;
