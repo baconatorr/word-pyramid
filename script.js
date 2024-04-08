@@ -205,11 +205,8 @@ function checkIfWord(json) {
     if (json && json[0] && json[0].hasOwnProperty("word")) {
         // If "word" property is found, run the animate("correct") function
         animate("correct");
-    } else {
-        // If "word" property is not found, you can handle it here
-        console.log("No word property found in the response.");
     }
-}
+    }
 
 function animate(rw){
     if(rw == "correct") {
