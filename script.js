@@ -17,6 +17,7 @@ let night = false;
 let currentCheck;
 
 let wordCount = 0;
+let winCount = 0;
 
 // Check if the user has visited the page before
 if (!localStorage.getItem('visited')) {
@@ -25,6 +26,8 @@ if (!localStorage.getItem('visited')) {
 
   // Set a flag in local storage to indicate that the user has visited the page
   localStorage.setItem('visited', 'true');
+
+  
 }
 window.onload = () => {
     chosenLetters = [];
@@ -32,6 +35,12 @@ window.onload = () => {
     generateLetter();
     skips = 3;  
     count = 15;
+    let storedWins = localStorage.getItem('wins');
+     if (storedWins !== null) {
+        wins = parseInt(storedWins);
+    } else {
+        localStorage.setItem('wins', wins);
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -221,7 +230,8 @@ function animate(rw){
 
 function winCheck(){
   if(wordCount == 5){
-    
+      wins++;
+      localStorage.setItem('wins', wins);
   }
 }
 function refresh(){
