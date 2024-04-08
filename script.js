@@ -15,16 +15,23 @@ let count = 15;
 let randomIndex;
 let night = false;
 let currentCheck;
+window.addEventListener('DOMContentLoaded', (event) => {
+  // Function that needs to be executed before page load
+   if (nightModeEnabled) {
+        nightMode();
+    }
+  
+  // Allow page content to be displayed
+  document.getElementById('loader').style.display = 'none';
+  document.getElementById('content').style.display = 'block';
+});
 window.onload = () => {
     chosenLetters = [];
     generateList();
     generateLetter();
     skips = 3;  
     count = 15;
-    const nightModeEnabled = localStorage.getItem("nightMode") === "true";
-    if (nightModeEnabled) {
-        nightMode();
-    }
+    const nightModeEnabled = localStorage.getItem("nightMode") === "true"
 }
 
 document.addEventListener("DOMContentLoaded", function() {
