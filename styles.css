@@ -10,6 +10,23 @@ body{
     color: #5d4140
 }
 
+.night{
+    background-color: #535353;
+    color: white;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100vw;
+}
+
+.header i{
+    font-size: 2.5vmax;
+    cursor: pointer;
+}
+
 .pyramid{
     gap: 10px;
     width: 50vmax;
@@ -63,6 +80,7 @@ body{
     background: linear-gradient(45deg, rgba(255,220,205,1) 50%, rgba(231,180,158,1) 100%);
     border-bottom: 9px #da9e93 solid;
     border-radius: 20%;
+    color: #5d4140
 }
 
 
@@ -116,11 +134,61 @@ body{
     font-size: 2.5vmax;
     margin: 0;
     font-weight: bold;
+    color: #5d4140
 }
 
 .bottom i{
     cursor: pointer;
 }
+
+/* Modal content styles */
+dialog {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 70%; /* Adjust width */
+    max-width: 500px; /* Add max-width to prevent excessive width */
+    max-height: 70vh; /* Adjust max-height */
+    overflow: auto;
+}
+
+dialog h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+dialog h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+dialog p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+dialog img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+dialog button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+dialog button:hover {
+    background-color: #0056b3;
+}
+
+
 
 @keyframes pop-in{
     from{
