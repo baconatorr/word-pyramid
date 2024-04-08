@@ -210,7 +210,7 @@ function checkIfWord(json) {
 
 function animate(rw){
     if(rw == "correct" || rw == "wrong") {
-        for(let i = 0; i < currentCheck; i++){
+        for(let i = 1; i < currentCheck; i++){
             let id = document.getElementById("r" + currentCheck + "s" + i);
             if (id) {
                 id.classList.add(rw); // Adding either "correct" or "incorrect" class
