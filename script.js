@@ -256,13 +256,13 @@ function refresh(){
     location.reload();
 }
 
-function openModal(){
-    let modal = document.getElementById("modal");
+function openModal(id){
+    let modal = document.getElementById(id);
     modal.showModal();
 }
 
-function closeModal(){
-    let modal = document.getElementById("modal");
+function closeModal(id){
+    let modal = document.getElementById(id);
     modal.close();
 }
 
