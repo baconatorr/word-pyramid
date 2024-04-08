@@ -20,7 +20,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
   const nightModeEnabled = localStorage.getItem("nightMode") === "true"
    if (nightModeEnabled) {
         nightMode();
-    }
+    } else{
+        night = false;
+        nightMode();
+   }
   
   // Allow page content to be displayed
   document.getElementById('loader').style.display = 'none';
