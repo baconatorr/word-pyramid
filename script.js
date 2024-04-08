@@ -17,7 +17,8 @@ let night = false;
 let currentCheck;
 
 let wordCount = 0;
-let winCount = 0;
+let wins = 0;
+let matches = 0;
 let letterCount = 0;
 
 // Check if the user has visited the page before
@@ -43,6 +44,12 @@ window.onload = () => {
         wins = parseInt(storedWins);
     } else {
         localStorage.setItem('wins', wins);
+    }
+    let storedMatches = localStorage.getItem('matches)';
+    if (storedWins !== null) {
+        matches = parseInt(storedMatches);
+    } else {
+        localStorage.setItem('matches', matches);
     }
 }
 
