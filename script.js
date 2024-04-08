@@ -174,7 +174,7 @@ function rowCheck(Id){
     let pushed = word.join(""); // Use join() to concatenate array elements into a string
     console.log(pushed + " was pushed");
     // Assuming `Get` is a valid function for fetching data
-    Get(pushed).then(data => checkIfWord(data)).catch(error => console.error(error));
+   checkIfWord(Get(pushed));
 }
 
 
