@@ -189,7 +189,14 @@ function Get(word) {
                 return response.json();
             })
             .then(data => resolve(data))
-            .catch(error => reject(error));
+            .catch(error => {
+                if (error.message.includes('404')) {
+                    console.log('Word not found in the dictionary.');
+                    animate("incorrect")
+                } else {
+                    reject(error);
+                }
+            });
     });
 }
 
