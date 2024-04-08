@@ -19,13 +19,7 @@ localStorage.setItem("nightMode", night);
 window.addEventListener('DOMContentLoaded', (event) => {
   // Function that needs to be executed before page load
   const nightModeEnabled = localStorage.getItem("nightMode")
-   if (nightModeEnabled  === "true" ) {
-        night = true;
-        nightMode();
-    } else{
-        night = false;
-        nightMode();
-   }
+   nightMode();
   
   // Allow page content to be displayed
   document.getElementById('content').style.display = 'block';
@@ -237,7 +231,7 @@ function nightMode() {
         night = true;
     } else {
         document.body.classList.remove("night");
-        document.body.style.backgroundC = "#FFFFFF";
+        document.body.style.backgroundColor = "#FFFFFF";
         localStorage.removeItem("nightMode");
         night = false;
     }
