@@ -156,7 +156,7 @@ function skip(){
 function rowCheck(Id){
     // Extract row number from the ID
     let row = Id.substring(1, 2); // Assuming IDs are in the format 'rXsY'
-
+    currentCheck = row;
     let word = [];
     // Iterate over all squares in the row
     for(let i = 1; i <= row; i++){
@@ -174,7 +174,7 @@ function rowCheck(Id){
     let pushed = word.join(""); // Use join() to concatenate array elements into a string
     console.log(pushed + " was pushed");
     // Assuming `Get` is a valid function for fetching data
-   checkIfWord(Get(pushed));
+   Get(pushed);
 }
 
 
@@ -186,13 +186,13 @@ function Get(word) {
                 if (!response.ok) {
                     throw new Error('Request failed: ' + response.status);
                 }
-                return response.json();
+                animate("correct");
             })
             .then(data => resolve(data))
             .catch(error => {
                 if (error.message.includes('404')) {
                     console.log('Word not found in the dictionary.');
-                    animate("incorrect")
+                    animate("wrong");
                 } else {
                     reject(error);
                 }
