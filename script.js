@@ -13,7 +13,8 @@ let letter = "";
 let skips = 3;
 let count = 15;
 let randomIndex;
-let night = false
+let night = false;
+let currentCheck;
 window.onload = () => {
     chosenLetters = [];
     generateList();
@@ -57,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
             //make new letter and reduce count
             generateLetter();
             count--;
-            //animate new letter
+            rowCheck(squareId);
         }
     }
 });
@@ -146,6 +147,74 @@ function skip(){
     }
 }
 
+
+function rowCheck(Id){
+    //get row from id
+    let row = Id[1];
+    currentCheck = row;
+    let word = [];
+    for(let i = 0; i < row; i++){
+        let id = document.getElementById("r" + row + "s" + i);
+        if (id) {
+            let check = id.querySelector('p');
+            if (check != null) {
+                word.push(check.textContent);
+            } else {
+                console.log("RNC");
+                return undefined;
+            }
+        }
+    }
+    let pushed = word.toString();
+    console.log(pushed);
+    Get(pushed).then(data => checkIfWord(data)).catch(error => console.error(error));
+}
+
+
+function Get(word) {
+    return new Promise((resolve, reject) => {
+        let url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + word;
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Request failed: ' + response.status);
+                }
+                return response.json();
+            })
+            .then(data => resolve(data))
+            .catch(error => reject(error));
+    });
+}
+
+function checkIfWord(json) {
+    try {
+        let obj = JSON.parse(json);
+        if (obj[0].hasOwnProperty("word")) {
+            animate("correct");
+        } else {
+            animate("wrong");
+        }
+    } catch (error) {
+        // Handle error, maybe log it or notify the user
+        console.error("Error parsing JSON:", error);
+        // Handle the case when the API call fails
+        // For example, show an error message to the user
+    }
+}
+
+function animate(rw){
+    if(rw == "correct") {
+        for(let i = 0; i < currentCheck; i++){
+            let id = document.getElementById("r" + currentCheck + "s" + i);
+            id.classList.add("correct");
+        }
+    } else if(rw == "wrong"){
+        for(let i = 0; i < currentCheck; i++){
+            let id = document.getElementById("r" + currentCheck + "s" + i);
+            id.classList.add("incorrect");
+        }
+    }
+}
 function refresh(){
     location.reload();
 }

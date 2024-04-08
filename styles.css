@@ -84,6 +84,16 @@ body{
     color: #5d4140
 }
 
+.correct{
+    background: #28b976;
+    color: white;
+}
+
+.incorrect{
+    background: #b92d28;
+    color: white;
+}
+
 
 .bottom{
     width: 25vmax;
