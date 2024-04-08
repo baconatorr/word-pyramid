@@ -17,6 +17,7 @@ let night = false;
 let currentCheck;
 window.addEventListener('DOMContentLoaded', (event) => {
   // Function that needs to be executed before page load
+  const nightModeEnabled = localStorage.getItem("nightMode") === "true"
    if (nightModeEnabled) {
         nightMode();
     }
@@ -31,7 +32,6 @@ window.onload = () => {
     generateLetter();
     skips = 3;  
     count = 15;
-    const nightModeEnabled = localStorage.getItem("nightMode") === "true"
 }
 
 document.addEventListener("DOMContentLoaded", function() {
