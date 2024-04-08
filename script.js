@@ -185,7 +185,7 @@ function rowCheck(Id){
         }
     }
     let pushed = word.toString();
-    console.log(pushed);
+    console.log(pushed + " was pushed");
     Get(pushed).then(data => checkIfWord(data)).catch(error => console.error(error));
 }
 
