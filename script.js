@@ -31,6 +31,11 @@ if (!localStorage.getItem('visited')) {
 
   
 }
+document.body.onload = function() {
+    document.querySelector('.loader').style.display = 'block';
+  document.querySelector('.content').style.display = 'none';
+};
+
 window.onload = () => {
     chosenLetters = [];
     generateList();
@@ -53,6 +58,8 @@ window.onload = () => {
     }
     document.getElementById("winDisplay").innerText = "Wins = " + wins;
     document.getElementById("matchesDisplay").innerText = "Matches = " + matches;
+   document.querySelector('.loader').style.display = 'none';
+    document.querySelector('.content').style.display = 'block';
 }
 
 document.addEventListener("DOMContentLoaded", function() {
