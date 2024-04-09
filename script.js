@@ -39,20 +39,6 @@ document.addEventListener("DOMContentLoaded", function() {
     wordCount = 0;
     skips = 3;  
     count = 15;
-    let storedWins = localStorage.getItem('wins');
-     if (storedWins !== null) {
-        wins = parseInt(storedWins);
-    } else {
-        localStorage.setItem('wins', wins);
-    }
-    let storedMatches = localStorage.getItem('matches');
-    if (storedMatches !== null) {
-        matches = parseInt(storedMatches);
-    } else {
-        localStorage.setItem('matches', matches);
-    }
-    document.getElementById("winDisplay").innerText = "Wins = " + wins;
-    document.getElementById("matchesDisplay").innerText = "Matches = " + matches;
   
     // Get all the square elements
     var squares = document.querySelectorAll(".space");
