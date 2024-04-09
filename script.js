@@ -23,7 +23,7 @@ let letterCount = 0;
 // Check if the user has visited the page before
 if (!localStorage.getItem('visited')) {
   // Run the function for first-time users
-  openModal();
+  openModal('modal')
 
   // Set a flag in local storage to indicate that the user has visited the page
   localStorage.setItem('visited', 'true');
