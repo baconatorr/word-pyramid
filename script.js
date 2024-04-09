@@ -31,8 +31,8 @@ if (!localStorage.getItem('visited')) {
   
 }
 
-window.onload = () => {
-    chosenLetters = [];
+document.addEventListener("DOMContentLoaded", function() {
+      chosenLetters = [];
     generateList();
     generateLetter();
     letterCount = 0;
@@ -53,9 +53,7 @@ window.onload = () => {
     }
     document.getElementById("winDisplay").innerText = "Wins = " + wins;
     document.getElementById("matchesDisplay").innerText = "Matches = " + matches;
-}
-
-document.addEventListener("DOMContentLoaded", function() {
+  
     // Get all the square elements
     var squares = document.querySelectorAll(".space");
 
