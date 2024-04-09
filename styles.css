@@ -32,11 +32,6 @@ body{
     cursor: pointer;
 }
 
-.header h1 {
-    width: auto; /* Set width to auto to allow the element to expand */
-    margin: 0 auto; /* Center the element horizontally */
-}
-
 .right{
     display: flex;
     align-items: center;
