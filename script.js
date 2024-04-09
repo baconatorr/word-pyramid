@@ -11,7 +11,6 @@ let vowelCount;
 let chosenLetters = [];
 let letter = "";
 let skips = 3;
-let count = 15;
 let randomIndex;
 let night = false;
 let currentCheck;
@@ -139,7 +138,6 @@ function generateList(){
         chosenLetters.push(t6[(Math.floor(Math.random() * t6.length))])
     }
 
-     //i fucking hate programming algorithms
     if(vowelCount == 6){
         chosenLetters.pop()
     }
@@ -159,7 +157,6 @@ function generateLetter() {
 }
 
 function displayLetter(){
-    if(count > 0){
         const display = document.getElementById("letter");
         display.innerText = letter;
         let letterElement = document.querySelector('.letter');
@@ -167,7 +164,6 @@ function displayLetter(){
         void letterElement.offsetWidth; // Trigger reflow
         letterElement.style.animation = 'pop-in 0.2s ease'; // Re-add animation
         chosenLetters.splice(randomIndex, 1)
-    }
 }
 
 function skip(){
