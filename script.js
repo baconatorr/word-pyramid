@@ -14,6 +14,7 @@ let skips = 3;
 let randomIndex;
 let night = false;
 let currentCheck;
+let isFetching = false;
 
 let wordCount = 0;
 let wins = 0;
@@ -55,6 +56,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to handle square click
     function addLetter(squareId) {
+      if(isFetching){
+        return undefined;
+      }
         console.log("Square clicked:", squareId);
         let id = document.getElementById(squareId);
         let existingP = id.querySelector('p');
@@ -184,6 +188,7 @@ function rowCheck(Id){
 
 
 function Get(word) {
+  isFetching = true;
     return new Promise((resolve, reject) => {
         let url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + word;
         fetch(url)
@@ -208,6 +213,7 @@ function Get(word) {
 }
 
 function animate(rw){
+  isFetching = false;
     if(rw == "correct" || rw == "wrong") {
         for(let i = 1; i <= currentCheck; i++){
             let id = document.getElementById("r" + currentCheck + "s" + i);
