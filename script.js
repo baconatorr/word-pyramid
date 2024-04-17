@@ -188,26 +188,24 @@ function rowCheck(Id){
 
 
 function Get(word) {
-  isFetching = true;
+    isFetching = true;
     return new Promise((resolve, reject) => {
         let url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + word;
         fetch(url)
             .then(response => {
-                if (!response.ok) {
-                    throw new Error('Request failed: ' + response.status);
-                }
-                wordCount++;
-                animate("correct");
-                winCheck();
-            })
-            .then(data => resolve(data))
-            .catch(error => {
-                if (error.message.includes('404')) {
-                    console.log('Word not found in the dictionary.');
+                if (response.status === 404) {
                     animate("wrong");
+                    reject(new Error('Word not found in the dictionary.'));
+                } else if (!response.ok) {
+                    throw new Error('Request failed: ' + response.status);
                 } else {
-                    reject(error);
+                    animate("correct");
+                    resolve();
                 }
+            })
+            .catch(error => {
+                console.error('Error:', error.message);
+                reject(error); // Reject with error
             });
     });
 }
