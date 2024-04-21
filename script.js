@@ -205,6 +205,7 @@ function Get(word) {
             })
             .catch(error => {
     });
+  })
 }
 
 function animate(rw){
