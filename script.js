@@ -190,17 +190,23 @@ function rowCheck(Id){
 function Get(word) {
     isFetching = true;
     return new Promise((resolve, reject) => {
-        let url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + word;
+        let url = "https://scrabble.adelbeit.com/check/" + word;
         fetch(url)
             .then(response => {
-                if (response.status === 404) {
-                    animate("wrong");
-                    reject(new Error('Word not found in the dictionary.'));
-                } else if (!response.ok) {
+              if (!response.ok) {
                     throw new Error('Request failed: ' + response.status);
                 } else {
                     animate("correct");
-                    resolve();
+                    return response.json(); // Parse response JSON
+                }
+            })
+            .then(data => {
+                if (data.msg === "Valid word!") {
+                    animate("correct");
+                    resolve(data); // Resolve with data
+                } else{
+                  animate("wrong");
+                  reject(error);
                 }
             })
             .catch(error => {
@@ -209,6 +215,7 @@ function Get(word) {
             });
     });
 }
+
 
 function animate(rw){
   isFetching = false;
