@@ -196,16 +196,17 @@ function Get(word) {
               if (!response.ok) {
                     throw new Error('Request failed: ' + response.status);
                 } else {
-                    animate("correct");
                     return response.json(); // Parse response JSON
                 }
             })
             .then(data => {
                 if (data.msg === "Valid word!") {
                     animate("correct");
+                    isFetching = false;
                     resolve(data); // Resolve with data
                 } else{
                   animate("wrong");
+                  isFetching = false;
                   reject(error);
                 }
             })
