@@ -204,12 +204,24 @@ function Get(word) {
                 }
             })
             .catch(error => {
-                console.error('Error:', error.message);
-                reject(error); // Reject with error
-            });
     });
 }
 
+function animate(rw){
+  isFetching = false;
+    if(rw == "correct" || rw == "wrong") {
+        for(let i = 1; i <= currentCheck; i++){
+            let id = document.getElementById("r" + currentCheck + "s" + i);
+            if (id) {
+                id.classList.add(rw); // Adding either "correct" or "incorrect" class
+            } else {
+                console.error("Element with ID 'r" + currentCheck + "s" + i + "' not found.");
+            }
+        }
+    } else {
+        console.error("Invalid animation type:", rw);
+    }
+}
 function winCheck(){
   if(wordCount == 5){
       wins++;
