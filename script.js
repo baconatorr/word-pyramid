@@ -190,24 +190,17 @@ function rowCheck(Id){
 function Get(word) {
     isFetching = true;
     return new Promise((resolve, reject) => {
-        let url = "https://scrabble.adelbeit.com/check/" + word;
+        let url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + word;
         fetch(url)
             .then(response => {
-              if (!response.ok) {
+                if (response.status === 404) {
+                    animate("wrong");
+                    reject(new Error('Word not found in the dictionary.'));
+                } else if (!response.ok) {
                     throw new Error('Request failed: ' + response.status);
                 } else {
-                    return response.json(); // Parse response JSON
-                }
-            })
-            .then(data => {
-                if (data.msg === "Valid word!") {
                     animate("correct");
-                    isFetching = false;
-                    resolve(data); // Resolve with data
-                } else{
-                  animate("wrong");
-                  isFetching = false;
-                  reject(error);
+                    resolve();
                 }
             })
             .catch(error => {
@@ -215,23 +208,6 @@ function Get(word) {
                 reject(error); // Reject with error
             });
     });
-}
-
-
-function animate(rw){
-  isFetching = false;
-    if(rw == "correct" || rw == "wrong") {
-        for(let i = 1; i <= currentCheck; i++){
-            let id = document.getElementById("r" + currentCheck + "s" + i);
-            if (id) {
-                id.classList.add(rw); // Adding either "correct" or "incorrect" class
-            } else {
-                console.error("Element with ID 'r" + currentCheck + "s" + i + "' not found.");
-            }
-        }
-    } else {
-        console.error("Invalid animation type:", rw);
-    }
 }
 
 function winCheck(){
