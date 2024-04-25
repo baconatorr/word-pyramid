@@ -197,6 +197,7 @@ function Get(word) {
                     animate("wrong");
                     reject(new Error('Word not found in the dictionary.'));
                 } else if (!response.ok) {
+                    Get(word);
                     throw new Error('Request failed: ' + response.status);
                 } else {
                     animate("correct");
