@@ -16,6 +16,10 @@ body{
     color: white;
 }
 
+.night-toggle{
+    color: white;
+}
+
 .header{
     display: flex;
     align-items: center;
