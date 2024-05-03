@@ -1,13 +1,13 @@
 body{
     height: 100%;
     width: 100%;
-    background-color: white;
+    background-color: #1a1a1b;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
     color: #5d4140
 }
 
@@ -58,7 +58,7 @@ body{
 .space{
     width: 5vmax;
     height: 5vmax;
-    border: 2px white solid;
+    border: 2px #1a1a1b solid;
     box-shadow: 0px 10px 67px 4px rgba(0,0,0,0.25);
     transition: box-shadow 0.15s;
     border-radius: 20%;
