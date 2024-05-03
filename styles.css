@@ -1,6 +1,9 @@
 body{
+    touch-action: manipulation;
     height: 100%;
     width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
     background-color: #1a1a1b;
     display: flex;
     flex-direction: column;
