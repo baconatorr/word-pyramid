@@ -203,7 +203,7 @@ dialog p {
 dialog img {
     max-width: 100%;
     height: auto;
-    object-fit: contain;
+    object-fit: scale-down;
     margin-bottom: 20px;
 }
 
