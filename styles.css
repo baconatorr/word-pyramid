@@ -107,13 +107,13 @@ body{
 
 .correct{
     background: #538d4e;
-    border-bottom: #08a318;
+    border-bottom: 9px #08a318 solid;
     color: white;
 }
 
 .wrong{
     background: #a11d13;
-    border-bottom: #
+    border-bottom: #7d140c;
     color: white;
 }
 
