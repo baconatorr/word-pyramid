@@ -93,27 +93,25 @@ body{
 }
 
 .space-add {
-    height: calc(5vmax - 8.8px);
+    height: 5vmax - 8.8px;
     width: 5vmax;
     display: flex;
     align-items: center;
     justify-content: center;
     background: rgb(255,220,205);
     background: linear-gradient(45deg, rgba(255,220,205,1) 50%, rgba(231,180,158,1) 100%);
-    border-bottom: 9px #da9e93 solid;
+    border-bottom: 0 #da9e93 solid;
     border-radius: 20%;
     color: #5d4140
 }
 
 .correct{
     background: #538d4e;
-    border-bottom: 9px #08a318 solid;
     color: white;
 }
 
 .wrong{
     background: #a11d13;
-    border-bottom: 9px solid #7d140c;
     color: white;
 }
 
