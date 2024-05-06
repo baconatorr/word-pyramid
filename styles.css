@@ -204,7 +204,6 @@ dialog img {
     max-width: 100%;
     height: auto;
     object-fit: scale-down;
-    margin-bottom: 20px;
 }
 
 dialog button {
