@@ -113,7 +113,7 @@ body{
 
 .wrong{
     background: #a11d13;
-    border-bottom: #7d140c;
+    border-bottom: 9px solid #7d140c;
     color: white;
 }
 
