@@ -239,6 +239,7 @@ function animate(rw){
 
 function winCheck(){
   if(wordCount == 5){
+    console.log('match complete');
       confetti();
       matches++;
       wins++;
@@ -248,6 +249,7 @@ function winCheck(){
       return undefined;
   }
   if(rowCount == 5){
+    console.log('match complete');
     matches++;
     localStorage.setItem('matches', matches); // Save matches to local storage
     loadStats();
