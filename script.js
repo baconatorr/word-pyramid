@@ -240,6 +240,7 @@ function animate(rw){
 function winCheck(){
   if(wordCount == 5){
     console.log('match complete');
+      document.getElementById("popper-button").style.visibility = "visible";
       confetti();
       matches++;
       wins++;
