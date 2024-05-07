@@ -27,13 +27,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+<meta property="og:title" content="Word Pyra">
+<meta property="og:description" content="A fun but challenging word game where you form words in each row of the pyramid using the provided random letter">
+<meta property="og:image" content="pyra snapshot.png">
+<meta property="og:url" content="https://wordpyra.com">
+<meta property="og:type" content="website">
 </head>
 <body>
         <div class="header">
-            <i class='bx bxs-moon' onclick="nightMode()" id="night-toggle"></i>
-            <h1>WordPyra</h1>
+            <div class="left">
+              <i class='bx bx-share'></i>
+            </div>
+            <div class="title">
+              <h1>WordPyra</h1>
+            </div>
             <div class="right">
                 <i class='bx bx-question-mark' onclick="openModal('modal')"></i>
+                <i class='bx bx-bar-chart-alt-2' onclick="openModal('stats')" ></i>
             </div>
         </div>
         <dialog id="modal">
@@ -44,11 +54,12 @@
             <button onclick="closeModal('modal')" id="close">Close</button>
         </dialog>
         <dialog id="stats">
-            <h1>WordPyra</h1>
-            <h2 id="winDisplay">Wins = </h2>
-            <h2 id="matchDisplay">Matches = </h2>
-            <p>Your aim in Word Pyramid is to form words in each row of the pyramid using the provided random letter. Tap the square in the pyramid to place the letter.</p>
-            <img src="modal gif.gif"></img>
+            <h1>Stats</h1>
+            <div class="stat-display">
+              <h2 id="winDisplay">Wins = </h2>
+              <h2 id="matchDisplay">Matches = </h2>
+              <h2 id="percentDisplay"> Win % = </p>
+            </div>
             <button onclick="closeModal('stats')" id="close">Close</button>
         </dialog>
         <div class="pyramid">
@@ -89,6 +100,8 @@
                 <i class='bx bxs-skip-next-circle' onclick="skip()"></i>
             </div>
         </div>
-</body>
+      </body>
+<script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
 <script src="script.js"></script>
+</body>
 </html>
