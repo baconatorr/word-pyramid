@@ -43,6 +43,8 @@ document.addEventListener("DOMContentLoaded", function() {
     rowCount = 0;
     skips = 3;  
     count = 15;
+    wins = parseInt(localStorage.getItem('wins')) || 0; // Retrieve wins from local storage, default to 0 if not found
+    matches = parseInt(localStorage.getItem('matches')) || 0; // Retrieve matches from local storage, default to 0 if not found
     loadStats();
     // Get all the square elements
     var squares = document.querySelectorAll(".space");
