@@ -26,7 +26,8 @@ let letterCount = 0;
 if (!localStorage.getItem('visited')) {
   // Run the function for first-time users
   openModal('modal')
-
+  localStorage.setItem('wins', 0);
+  localStorage.setItem('matches', 0);
   // Set a flag in local storage to indicate that the user has visited the page
   localStorage.setItem('visited', 'true');
 
