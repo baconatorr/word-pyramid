@@ -194,6 +194,7 @@ function rowCheck(Id){
 
 function Get(word) {
     rowCount++;
+    console.log(rowCount);
     isFetching = true;
     return new Promise((resolve, reject) => {
         let url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + word;
