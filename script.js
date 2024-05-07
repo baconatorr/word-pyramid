@@ -17,8 +17,9 @@ let currentCheck;
 let isFetching = false;
 
 let wordCount = 0;
-let wins = 0;
-let matches = 0;
+let rowCount = 0;
+let wins = parseInt(localStorage.getItem('wins')) || 0; // Retrieve wins from local storage, default to 0 if not found
+let matches = parseInt(localStorage.getItem('matches')) || 0; // Retrieve matches from local storage, default to 0 if not found
 let letterCount = 0;
 
 // Check if the user has visited the page before
@@ -33,14 +34,15 @@ if (!localStorage.getItem('visited')) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-      chosenLetters = [];
+    chosenLetters = [];
     generateList();
     generateLetter();
     letterCount = 0;
     wordCount = 0;
+    rowCount = 0;
     skips = 3;  
     count = 15;
-  
+    loadStats();
     // Get all the square elements
     var squares = document.querySelectorAll(".space");
 
@@ -188,6 +190,7 @@ function rowCheck(Id){
 
 
 function Get(word) {
+    rowCount++;
     isFetching = true;
     return new Promise((resolve, reject) => {
         let url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + word;
@@ -223,17 +226,39 @@ function animate(rw){
     } else {
         console.error("Invalid animation type:", rw);
     }
+
+    if(rw == "correct"){
+      wordCount++;
+      winCheck();
+    }
 }
+
 function winCheck(){
   if(wordCount == 5){
+      confetti();
+      matches++;
       wins++;
       localStorage.setItem('wins', wins);
+      localStorage.setItem('matches', matches); // Save matches to local storage
+      loadStats();
+      return undefined;
   }
-  if(letterCount == 16){
+  if(rowCount == 5){
     matches++;
-    localStorage.setItem('matches', matches);
+    localStorage.setItem('matches', matches); // Save matches to local storage
+    loadStats();
   }
 }
+
+function loadStats(){
+  document.getElementById('winDisplay').innerText = "Wins: " + wins;
+  document.getElementById('matchDisplay').innerText = "Matches: " + matches;
+  let percent = Math.round(wins/matches * 100);
+  if(percent != undefined){
+    document.getElementById('percentDisplay').innerText = "Victory Percent: " + percent + "%";
+  }
+}
+
 
 function refresh(){
     location.reload();
@@ -249,4 +274,15 @@ function closeModal(id){
     modal.close();
 }
 
+function share(where) {
+  if(where == "native"){
+    let textToCopyOrShare = "Come try this new game!: " + " https://wordpyra.com";
+  }
+  navigator.clipboard.writeText(textToCopyOrShare)
+}
 
+function confetti() {
+  const canvas = document.querySelector("body");
+  const jsConfetti = new JSConfetti()
+  jsConfetti.addConfetti()
+}
