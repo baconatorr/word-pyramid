@@ -241,8 +241,8 @@ dialog button:hover {
 }
 
 @media only screen and (max-width: 600px) {
-  i {
-    font-size: 3vmax;
+  .header i {
+    font-size: 4vmax;
   }
   .space {
       width: 8vmax; 
