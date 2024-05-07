@@ -93,7 +93,7 @@ body{
 }
 
 .space-add {
-  height: 5vmax - 8.8px;
+  height: 5vmax;
   width: 5vmax;
   display: flex;
   align-items: center;
@@ -241,12 +241,15 @@ dialog button:hover {
 }
 
 @media only screen and (max-width: 600px) {
+  i {
+    font-size: 3vmax;
+  }
   .space {
       width: 8vmax; 
       height: 8vmax; 
   }
   .space-add {
-      height: calc(8vmax - 8.8px);
+      height: 8vmax;
       width: 8vmax;
   }
   .letter{
