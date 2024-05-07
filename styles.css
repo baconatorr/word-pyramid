@@ -93,7 +93,7 @@ body{
 }
 
 .space-add {
-  height: 5vmax;
+  height: 5vmax - 8.8px;
   width: 5vmax;
   display: flex;
   align-items: center;
@@ -241,15 +241,12 @@ dialog button:hover {
 }
 
 @media only screen and (max-width: 600px) {
-  .header i {
-    font-size: 4vmax;
-  }
   .space {
       width: 8vmax; 
       height: 8vmax; 
   }
   .space-add {
-      height: 8vmax;
+      height: calc(8vmax - 8.8px);
       width: 8vmax;
   }
   .letter{
@@ -268,7 +265,29 @@ dialog button:hover {
   .space,
   .space-add,
   .letter {
-      width: 8vmax; /* Adjust width for medium screens */
-      height: 8vmax; /* Adjust height for medium screens */
+      width: 9vmax; /* Adjust width for medium screens */
+      height: 9vmax; /* Adjust height for medium screens */
+  }
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1200px) {
+  .space,
+  .space-add,
+  .letter {
+      width: 10vmax; /* Adjust width for medium screens */
+      height: 10vmax; /* Adjust height for medium screens */
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1500px) {
+  .space,
+  .space-add,
+  .letter {
+      width: 10vmax; /* Adjust width for medium screens */
+      height: 10vmax; /* Adjust height for medium screens */
+  }
+  .space p,
+  .letter p{
+    font-size: 5vmax;
   }
 }
