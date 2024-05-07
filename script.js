@@ -233,8 +233,8 @@ function animate(rw){
 
     if(rw == "correct"){
       wordCount++;
-      winCheck();
     }
+  winCheck();
 }
 
 function winCheck(){
