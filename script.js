@@ -254,7 +254,7 @@ function loadStats(){
   document.getElementById('winDisplay').innerText = "Wins: " + wins;
   document.getElementById('matchDisplay').innerText = "Matches: " + matches;
   let percent = Math.round(wins/matches * 100);
-  if(percent != undefined){
+  if(percent != NaN){
     document.getElementById('percentDisplay').innerText = "Victory Percent: " + percent + "%";
   }
 }
