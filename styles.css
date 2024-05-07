@@ -173,6 +173,33 @@ body{
   cursor: pointer;
 }
 
+#popper{
+  width: 50%;
+  height: 50%;
+  transition: transform 150ms cubic-bezier(.17,.67,.83,.67);
+}
+
+#popper-button{
+  visibility: hidden;
+  padding: 10px;
+  border-radius: 60px;
+  border: 0;
+  transition: background-color 150ms;
+}
+
+#popper-button:hover{
+  background-color: rgb(206, 206, 206);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#popper-button:hover #popper{
+  transform: scale(105%);
+}
+
+#popper-button:active #popper{
+  transform: scale(90%)
+}
+
 /* Modal content styles */
 dialog {
   background-color: #1a1a1b;
