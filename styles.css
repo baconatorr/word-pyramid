@@ -307,6 +307,10 @@ dialog button:hover {
   }
 }
 
+.header i{
+  font-size: 3vmax;
+}
+
 @media only screen and (min-width: 901px) and (max-width: 1200px) {
   .space,
   .space-add,
