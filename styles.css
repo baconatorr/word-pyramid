@@ -311,24 +311,4 @@ dialog button:hover {
   font-size: 3vmax;
 }
 
-@media only screen and (min-width: 901px) and (max-width: 1200px) {
-  .space,
-  .space-add,
-  .letter {
-      width: 10vmax; /* Adjust width for medium screens */
-      height: 10vmax; /* Adjust height for medium screens */
-  }
-}
 
-@media only screen and (min-width: 1200px) and (max-width: 1500px) {
-  .space,
-  .space-add,
-  .letter {
-      width: 10vmax; /* Adjust width for medium screens */
-      height: 10vmax; /* Adjust height for medium screens */
-  }
-  .space p,
-  .letter p{
-    font-size: 5vmax;
-  }
-}
