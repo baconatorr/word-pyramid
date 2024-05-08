@@ -18,17 +18,15 @@ let isFetching = false;
 
 let wordCount = 0;
 let rowCount = 0;
-let wins = parseInt(localStorage.getItem('wins')) || 0; // Retrieve wins from local storage, default to 0 if not found
-let matches = parseInt(localStorage.getItem('matches')) || 0; // Retrieve matches from local storage, default to 0 if not found
+let wins = parseInt(localStorage.getItem('wins')) || 0; 
+let matches = parseInt(localStorage.getItem('matches')) || 0; 
 let letterCount = 0;
 
-// Check if the user has visited the page before
 if (!localStorage.getItem('visited')) {
-  // Run the function for first-time users
+
   openModal('modal')
   localStorage.setItem('wins', 0);
   localStorage.setItem('matches', 0);
-  // Set a flag in local storage to indicate that the user has visited the page
   localStorage.setItem('visited', 'true');
 
   
@@ -43,23 +41,19 @@ document.addEventListener("DOMContentLoaded", function() {
     rowCount = 0;
     skips = 3;  
     count = 15;
-    wins = parseInt(localStorage.getItem('wins')) || 0; // Retrieve wins from local storage, default to 0 if not found
-    matches = parseInt(localStorage.getItem('matches')) || 0; // Retrieve matches from local storage, default to 0 if not found
+    wins = parseInt(localStorage.getItem('wins')) || 0; 
+    matches = parseInt(localStorage.getItem('matches')) || 0; 
     loadStats();
-    // Get all the square elements
     var squares = document.querySelectorAll(".space");
 
-    // Loop through each square and add click event listener
+
     squares.forEach(function(square) {
         square.addEventListener("click", function() {
-            // Get the ID of the clicked square
             var squareId = square.id;
-            // Call your function with the ID as parameter
             addLetter(squareId);
         });
     });
 
-    // Function to handle square click
     function addLetter(squareId) {
       if(isFetching){
         return undefined;
@@ -68,15 +62,11 @@ document.addEventListener("DOMContentLoaded", function() {
         let id = document.getElementById(squareId);
         let existingP = id.querySelector('p');
         if(!existingP) {
-            //add style elements
             id.classList.add("space-add");
-            //create p element
             let text = document.createElement('p');
             let letterText = document.createTextNode(letter);
             text.appendChild(letterText);
             id.appendChild(text);
-            //play sfx
-            //make new letter and reduce count
             generateLetter();
             count--;
             letterCount++;
@@ -86,19 +76,15 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function generateList(){
-    //generate random vowel count from 3-8
     vowelCount = Math.floor(Math.random() * (3) + 6); 
     console.log(vowelCount)
-    //total constants
     let totalConsonants = 16 - vowelCount;
-    //calclulate distribution counts
     let t1Count = Math.floor(Math.max(1, totalConsonants - 6))
     let t2Count = Math.floor(Math.max(1, totalConsonants - 6))
     let t3Count = Math.floor(Math.max(1, totalConsonants - 8))
     let t4Count = Math.floor(Math.max(1, totalConsonants - 9))
     let t5Count = Math.floor(Math.max(1, totalConsonants - 10))
     let t6Count = Math.floor(Math.max(1, totalConsonants - 11))
-    //list of distributions
     while(t1Count + t2Count + t3Count + t4Count + t5Count + t6Count > totalConsonants){
         if(t6Count > 0){
             t6Count--;
@@ -108,7 +94,7 @@ function generateList(){
             break;
         }
     }
-    //add distributions to chosen array
+
     for(let i = 0; i < vowelCount; i++){
         chosenLetters.push(vowels[(Math.floor(Math.random() * vowels.length))])
     }
@@ -138,7 +124,6 @@ function generateList(){
 }
 
 function generateLetter() {
-    // Choose a random letter from the array
     randomIndex = Math.floor(Math.random() * chosenLetters.length)
     console.log(randomIndex);
     letter = chosenLetters[randomIndex];
@@ -153,9 +138,9 @@ function displayLetter(){
         const display = document.getElementById("letter");
         display.innerText = letter;
         let letterElement = document.querySelector('.letter');
-        letterElement.style.animation = 'none'; // Remove animation
-        void letterElement.offsetWidth; // Trigger reflow
-        letterElement.style.animation = 'pop-in 0.2s ease'; // Re-add animation
+        letterElement.style.animation = 'none';
+        void letterElement.offsetWidth; 
+        letterElement.style.animation = 'pop-in 0.2s ease'; 
         chosenLetters.splice(randomIndex, 1)
 }
 
@@ -168,11 +153,9 @@ function skip(){
 
 
 function rowCheck(Id){
-    // Extract row number from the ID
-    let row = Id.substring(1, 2); // Assuming IDs are in the format 'rXsY'
+    let row = Id.substring(1, 2); 
     currentCheck = row;
     let word = [];
-    // Iterate over all squares in the row
     for(let i = 1; i <= row; i++){
         let id = document.getElementById("r" + row + "s" + i);
         if (id) {
@@ -185,9 +168,8 @@ function rowCheck(Id){
             }
         }
     }
-    let pushed = word.join(""); // Use join() to concatenate array elements into a string
+    let pushed = word.join(""); 
     console.log(pushed + " was pushed");
-    // Assuming `Get` is a valid function for fetching data
    Get(pushed);
 }
 
@@ -222,7 +204,7 @@ function animate(rw){
         for(let i = 1; i <= currentCheck; i++){
             let id = document.getElementById("r" + currentCheck + "s" + i);
             if (id) {
-                id.classList.add(rw); // Adding either "correct" or "incorrect" class
+                id.classList.add(rw);
             } else {
                 console.error("Element with ID 'r" + currentCheck + "s" + i + "' not found.");
             }
@@ -245,14 +227,14 @@ function winCheck(){
       matches++;
       wins++;
       localStorage.setItem('wins', wins);
-      localStorage.setItem('matches', matches); // Save matches to local storage
+      localStorage.setItem('matches', matches);
       loadStats();
       return undefined;
   }
   if(rowCount == 5){
     console.log('match complete');
     matches++;
-    localStorage.setItem('matches', matches); // Save matches to local storage
+    localStorage.setItem('matches', matches);
     loadStats();
   }
 }
