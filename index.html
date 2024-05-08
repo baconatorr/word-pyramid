@@ -47,7 +47,10 @@
             </div>
         </div>
         <dialog id="modal">
-            <h1>WordPyra</h1>
+            <div id="welcome">
+                <img src="wave.png">
+                <h1>Welcome to WordPyra</h1>
+            </div>
             <h2>How to play?</h2>
             <p>Your aim in Word Pyramid is to form words in each row of the pyramid using the provided random letter. Tap the square in the pyramid to place the letter.</p>
             <img src="modal gif.gif"></img>
@@ -100,7 +103,7 @@
                 <i class='bx bxs-skip-next-circle' onclick="skip()"></i>
             </div>
         </div>
-        <button id="popper-button" onclick="confetti()"><img src="party popper.png" id="popper""></button>
+        <button id="popper-button"><img src="party popper.png" id="popper" onclick="confetti()"></button>
       </body>
 <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
 <script src="script.js"></script>
