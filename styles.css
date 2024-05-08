@@ -258,6 +258,16 @@ dialog button:hover {
   margin-bottom: 20px;
 }
 
+#welcome{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+}
+
+#welcome img{
+  height: 40px;
+}
 @keyframes pop-in{
   from{
       transform: scale(0%);
