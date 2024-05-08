@@ -283,7 +283,7 @@ dialog button:hover {
       height: 8vmax; 
   }
   .space-add {
-      height: calc(8vmax - 8.8px);
+      height: 8vmax;
       width: 8vmax;
   }
   .letter{
